@@ -1,66 +1,75 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  YellowBox
 } from 'react-native';
-import { Container, Header, Content, Icon } from 'native-base';
+import { DrawerNavigator } from 'react-navigation';
+
+import NavigationService from './NavigationService';
+import NavStack from './components/navStack';
+import About from './components/about';
+
+YellowBox.ignoreWarnings([
+  'Warning: isMounted',
+]);
 
 
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+// main app screen - first screen of the drawer
+class HomeScreen extends Component {
+  static navigationOptions = {
+    drawerLabel: 'Home',
+  };
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Container>
-          <Header />
-          <Content>
-            <Icon name='home' />
-            <Icon ios='ios-menu' android="md-menu" style={{fontSize: 20, color: 'red'}}/>
-            <Icon type="FontAwesome" name="home" />
-          </Content>
-        </Container>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
+      <NavStack />
+    )
+  };
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+// secondary app screen - second screen of the drawer
+class AboutScreen extends Component {
+  static navigationOptions = {
+    drawerLabel: 'About',
+  };
+  render() {
+    return (
+      <About />
+    )
+  };
+};
+
+
+
+// main app navigation - drawers
+const NavDrawer = DrawerNavigator({
+  Home: {
+    screen: HomeScreen,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  About: {
+    screen: AboutScreen,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+},{
+  drawerPosition: 'left',
+  drawerWidth: 220,
+  drawerBackgroundColor: 'orange'
 });
+
+
+
+class App extends Component {
+  render() {
+    return (
+      <NavDrawer
+        ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef)
+        }}
+      />
+    )
+  };
+};
+
+export default App;
