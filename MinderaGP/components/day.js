@@ -6,7 +6,8 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  ActivityIndicator } from 'react-native';
+  ActivityIndicator
+} from 'react-native';
 import {
   Icon,
   ListItem,

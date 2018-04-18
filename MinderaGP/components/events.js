@@ -7,8 +7,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  ActivityIndicator,
-  StatusBar
+  ActivityIndicator
 } from 'react-native';
 import { Icon } from 'native-base';
 
@@ -81,10 +80,6 @@ export default class Events extends React.Component {
 
     return(
       <ScrollView style={{flex: 1}}>
-        <StatusBar
-          backgroundColor="#0047cc"
-          barStyle="light-content"
-        />
         <Image
           source={require('./img/eventBanner.png')}
           style={{height:200, width:'100%'}}

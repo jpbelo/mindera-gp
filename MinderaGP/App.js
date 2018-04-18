@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import {
   Platform,
   View,
-  YellowBox
+  YellowBox,
+  StatusBar
 } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
+import { Container } from 'native-base';
+
 
 import NavigationService from './NavigationService';
 import NavStack from './components/navStack';
@@ -64,11 +67,17 @@ const NavDrawer = DrawerNavigator({
 class App extends Component {
   render() {
     return (
-        <NavDrawer
-          ref={navigatorRef => {
-            NavigationService.setTopLevelNavigator(navigatorRef)
-          }}
-        />
+        <Container>
+          <StatusBar
+            backgroundColor="#0047cc"
+            barStyle="light-content"
+          />
+          <NavDrawer
+            ref={navigatorRef => {
+              NavigationService.setTopLevelNavigator(navigatorRef)
+            }}
+          />
+        </Container>
     )
   };
 };
