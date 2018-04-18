@@ -27,7 +27,13 @@ export default class Day extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { isLoading: true }
+    this.state = {
+      isLoading: true,
+      dataSource: [{
+        name: 'loading...',
+        id: 'loading',
+      }]
+    }
   }
 
   componentDidMount(){
@@ -94,6 +100,6 @@ export default class Day extends React.Component {
 
 const styles = StyleSheet.create({
   listItemName: {
-    fontSize: 20,
+    fontSize: 19,
   },
 });

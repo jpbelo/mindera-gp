@@ -24,7 +24,7 @@ class Event extends React.Component {
       dataSource: [{
         name: 'loading...',
         cover_img: 'http://samples.joaobelo.pt/480x600/loading_cover.png',
-        id: '1',
+        id: 'loading',
       }]
     }
   }
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 8,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
     color: 'rgb(20,20,20)',
   }
 });

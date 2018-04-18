@@ -47,7 +47,7 @@ function router($paths){
 
   if( !isset($resultSQL) ){
 
-    $errorMessage = array(['message' => 'no results']);
+    $errorMessage = array(['id' => 'error', 'name' => 'no items']);
     echo json_encode($errorMessage);
 
   }else{
@@ -59,7 +59,7 @@ function router($paths){
     $result = mysqli_query($link, $resultSQL);
 
     if( !$result || mysqli_num_rows($result) < 1 ){
-      $errorMessage = array(['message' => 'no results']);
+      $errorMessage = array(['id' => 'error', 'name' => 'no items']);
       echo json_encode($errorMessage);
     }else{
       echo ($isArray ? '[' : null);

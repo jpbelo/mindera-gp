@@ -44,7 +44,7 @@ export default class Events extends React.Component {
       isLoading: true,
       dataSource: [{
         name: 'loading...',
-        id: '1',
+        id: 'loading',
       }]
     }
   }
@@ -70,7 +70,7 @@ export default class Events extends React.Component {
   _renderItem = ({item}) => (
     <View>
       <Text style={styles.eventName}>{item.name}</Text>
-      <Event eventID={item.id} eventName={item.name} />
+      {!this.state.isLoading && <Event eventID={item.id} eventName={item.name} />}
     </View>
   );
 
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     paddingTop: 25,
     paddingBottom: 8,
     paddingLeft: 15,
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: "bold",
   },
 });

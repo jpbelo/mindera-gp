@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: joaobelo.pt (MySQL 5.5.5-10.0.34-MariaDB)
-# Database: joaobelo_mindera_gp
-# Generation Time: 2018-04-14 23:25:26 +0000
+# Host: 127.0.0.1 (MySQL 5.7.20)
+# Database: mindera-gp
+# Generation Time: 2018-04-18 14:44:04 +0000
 # ************************************************************
 
 
@@ -39,16 +39,16 @@ LOCK TABLES `event_day_list_elements` WRITE;
 
 INSERT INTO `event_day_list_elements` (`id`, `order_id`, `list_id`, `name`, `image`)
 VALUES
-	(1,1,'1','Description 01','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic01.jpg'),
-	(2,2,'1','Description 02','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic02.jpg'),
-	(3,3,'1','Description 03','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic03.jpg'),
-	(4,4,'1','Description 04','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic04.jpg'),
-	(5,5,'1','Description 05','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic01.jpg'),
-	(6,6,'1','Description 06','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic02.jpg'),
-	(7,7,'1','Description 07','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic03.jpg'),
-	(8,8,'1','Description 08','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic04.jpg'),
-	(9,9,'1','Description 09','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic01.jpg'),
-	(10,9,'2','Description 09','http://www.ricoh-imaging.co.jp//english/products/k-s2/ex/img/ex-thumb-pic01.jpg');
+	(1,1,'1','Description 01','http://samples.joaobelo.pt/500x500/1.png'),
+	(2,2,'1','Description 02','http://samples.joaobelo.pt/500x500/2.png'),
+	(3,3,'1','Description 03','http://samples.joaobelo.pt/500x500/3.png'),
+	(4,4,'1','Description 04','http://samples.joaobelo.pt/500x500/4.png'),
+	(5,5,'1','Description 05','http://samples.joaobelo.pt/500x500/5.png'),
+	(6,6,'1','Description 06','http://samples.joaobelo.pt/500x500/1.png'),
+	(7,7,'1','Description 07','http://samples.joaobelo.pt/500x500/2.png'),
+	(8,8,'1','Description 08','http://samples.joaobelo.pt/500x500/3.png'),
+	(9,9,'1','Description 09','http://samples.joaobelo.pt/500x500/4.png'),
+	(10,9,'2','Description 09','http://samples.joaobelo.pt/500x500/5.png');
 
 /*!40000 ALTER TABLE `event_day_list_elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -102,25 +102,26 @@ CREATE TABLE `event_days` (
   `event_id` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `cover_img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `event_days` WRITE;
 /*!40000 ALTER TABLE `event_days` DISABLE KEYS */;
 
-INSERT INTO `event_days` (`id`, `event_id`, `date`, `name`)
+INSERT INTO `event_days` (`id`, `event_id`, `date`, `name`, `cover_img`)
 VALUES
-	(1,'1','2018-04-21','Day 01'),
-	(2,'1','2018-04-22','Day 02'),
-	(3,'1','2018-04-23','Day 03'),
-	(4,'1','2018-04-24','Day 04'),
-	(5,'2','2018-06-01','Welcoming'),
-	(6,'2','2018-06-02','The Basics'),
-	(7,'2','2018-06-03','Develop Skills'),
-	(8,'2','2018-06-04','Implementation'),
-	(9,'3','2018-08-01','Day 01'),
-	(10,'3','2018-08-02','Day 02'),
-	(11,'3','2018-08-03','Day 03');
+	(1,'1','2018-04-21','Day 01','http://samples.joaobelo.pt/480x600/2.png'),
+	(2,'1','2018-04-22','Day 02','http://samples.joaobelo.pt/480x600/3.png'),
+	(3,'1','2018-04-23','Day 03','http://samples.joaobelo.pt/480x600/4.png'),
+	(4,'1','2018-04-24','Day 04','http://samples.joaobelo.pt/480x600/2.png'),
+	(5,'2','2018-06-01','Welcoming','http://samples.joaobelo.pt/480x600/1.png'),
+	(6,'2','2018-06-02','The Basics','http://samples.joaobelo.pt/480x600/2.png'),
+	(7,'2','2018-06-03','Develop Skills','http://samples.joaobelo.pt/480x600/3.png'),
+	(8,'2','2018-06-04','Implementation','http://samples.joaobelo.pt/480x600/4.png'),
+	(9,'3','2018-08-01','Day 01','http://samples.joaobelo.pt/480x600/3.png'),
+	(10,'3','2018-08-02','Day 02','http://samples.joaobelo.pt/480x600/4.png'),
+	(11,'3','2018-08-03','Day 03','http://samples.joaobelo.pt/480x600/2.png');
 
 /*!40000 ALTER TABLE `event_days` ENABLE KEYS */;
 UNLOCK TABLES;

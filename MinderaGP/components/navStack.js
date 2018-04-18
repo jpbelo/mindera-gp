@@ -12,6 +12,7 @@ import List from './list';
 
 
 
+// secondary app navigation - stack
 const RouterStack = StackNavigator(
   {
     NavTabs: {

@@ -11,7 +11,7 @@ import Events from './events';
 import Vacancies from './vacancies';
 
 
-
+// third level app navigation - tabs
 const navTabs = TabNavigator({
   Events: {
       screen: Events,
