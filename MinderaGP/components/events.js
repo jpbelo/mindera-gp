@@ -40,7 +40,13 @@ export default class Events extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { isLoading: true }
+    this.state = {
+      isLoading: true,
+      dataSource: [{
+        name: 'loading...',
+        id: '1',
+      }]
+    }
   }
 
   componentDidMount(){
@@ -70,13 +76,13 @@ export default class Events extends React.Component {
 
 
   render(){
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
+    // if(this.state.isLoading){
+    //   return(
+    //     <View style={{flex: 1}}>
+    //       <ActivityIndicator/>
+    //     </View>
+    //   )
+    // }
 
     return(
       <ScrollView style={{flex: 1}}>

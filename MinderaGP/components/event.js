@@ -11,13 +11,22 @@ import {
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
+import DayCover from './img/loading_cover.png';
+
 
 
 class Event extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { isLoading: true }
+    this.state = {
+      isLoading: true,
+      dataSource: [{
+        name: 'loading...',
+        cover_img: 'http://samples.joaobelo.pt/480x600/loading_cover.png',
+        id: '1',
+      }]
+    }
   }
 
   componentDidMount(){
@@ -40,6 +49,7 @@ class Event extends React.Component {
 
 
   _renderItem = ({item}) => (
+
     <TouchableOpacity
       id={item.id}
       style={styles.slide}
@@ -57,19 +67,11 @@ class Event extends React.Component {
         <Text style={styles.slideName}>{item.name}</Text>
       </ImageBackground>
     </TouchableOpacity>
+
   );
 
 
   render(){
-
-    if(this.state.isLoading){
-      return(
-        <View style={styles.sliderWrap}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
     return(
       <View style={styles.sliderWrap}>
         <ScrollView
@@ -90,6 +92,7 @@ class Event extends React.Component {
       </View>
     );
   }
+
 }
 
 
