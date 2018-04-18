@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
-import DayCover from './img/loading_cover.png';
+import DayCoverPlaceholder from './img/loading_cover.png';
 
 
 
@@ -49,25 +49,39 @@ class Event extends React.Component {
 
 
   _renderItem = ({item}) => (
+    <View>
 
-    <TouchableOpacity
-      id={item.id}
-      style={styles.slide}
-      onPress={() => {
-        this.props.navigation.navigate('Day', {
-          itemId: item.id,
-          title: this.props.eventName + ' _ ' + item.name
-        });
-      }}
-      >
-      <ImageBackground
-        style={styles.slideBackground}
-        source={{uri: item.cover_img }}
-      >
-        <Text style={styles.slideName}>{item.name}</Text>
-      </ImageBackground>
-    </TouchableOpacity>
+      {/* if loading, no onPress and replace ImageBackground with the placeholder */}
+      {this.state.isLoading && (<TouchableOpacity
+        id={item.id}
+        style={styles.slide}
+        >
+        <ImageBackground
+          style={styles.slideBackground}
+          source={DayCoverPlaceholder}>
+          <Text style={styles.slideName}>{item.name}</Text>
+        </ImageBackground>
+      </TouchableOpacity> )}
 
+      {/* after loading */}
+      {!this.state.isLoading && (<TouchableOpacity
+        id={item.id}
+        style={styles.slide}
+        onPress={() => {
+          this.props.navigation.navigate('Day', {
+            itemId: item.id,
+            title: this.props.eventName + ' _ ' + item.name
+          });
+        }}
+        >
+        <ImageBackground
+          style={styles.slideBackground}
+          source={{uri: item.cover_img }}>
+          <Text style={styles.slideName}>{item.name}</Text>
+        </ImageBackground>
+      </TouchableOpacity> )}
+
+    </View>
   );
 
 

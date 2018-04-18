@@ -1,6 +1,12 @@
 import React from 'react';
-import { View, Text,TouchableOpacity } from 'react-native';
-import { Icon } from 'native-base';
+import { View, Text,TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {
+  Container,
+  Icon,
+} from 'native-base';
+
+import minderaIcon from './img/logo.png';
+
 
 
 export default class Vacancies extends React.Component {
@@ -26,7 +32,31 @@ export default class Vacancies extends React.Component {
 
   render() {
     return (
-          <Text>Vacancies</Text>
+          <Container>
+            <View style={styles.vacanciesView}>
+              <Image
+                style={styles.mindIcon}
+                source={minderaIcon}
+              />
+              <Text>Vacancies</Text>
+            </View>
+          </Container>
     );
   }
 }
+
+
+
+const styles = StyleSheet.create({
+  vacanciesView: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  mindIcon: {
+    width: 96,
+    height: 120,
+    marginBottom: 60,
+  },
+});
