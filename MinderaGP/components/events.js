@@ -16,6 +16,8 @@ import Event from './event';
 
 
 
+{/* first screen - list each event */}
+
 export default class Events extends React.Component {
 
   static navigationOptions = {
@@ -70,20 +72,12 @@ export default class Events extends React.Component {
   _renderItem = ({item}) => (
     <View>
       <Text style={styles.eventName}>{item.name}</Text>
+      {/* after loading each event include the box for each day */}
       {!this.state.isLoading && <Event eventID={item.id} eventName={item.name} />}
     </View>
   );
 
-
   render(){
-    // if(this.state.isLoading){
-    //   return(
-    //     <View style={{flex: 1}}>
-    //       <ActivityIndicator/>
-    //     </View>
-    //   )
-    // }
-
     return(
       <ScrollView style={{flex: 1}}>
         <Image

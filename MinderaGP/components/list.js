@@ -10,6 +10,8 @@ import {
 
 
 
+{/* image + description pairs for the selected list */}
+
 export default class List extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
@@ -21,7 +23,9 @@ export default class List extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { isLoading: true }
+    this.state = {
+      isLoading: true,
+    }
   }
 
   componentDidMount(){
@@ -31,14 +35,11 @@ export default class List extends React.Component {
     return fetch('https://react.joaobelo.pt/lists/' + itemId)
       .then((response) => response.json())
       .then((responseJson) => {
-
         this.setState({
           isLoading: false,
           dataSource: responseJson,
         }, function(){
-
         });
-
       })
       .catch((error) =>{
         console.error(error);
@@ -58,11 +59,10 @@ export default class List extends React.Component {
     </View>
   );
 
-
   render(){
     if(this.state.isLoading){
       return(
-        <View style={{flex: 1, padding: 20}}>
+        <View style={{paddingTop: 20}}>
           <ActivityIndicator/>
         </View>
       )

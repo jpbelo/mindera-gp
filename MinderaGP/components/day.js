@@ -16,6 +16,8 @@ import {
 
 
 
+{/* list for the selected day */}
+
 export default class Day extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
@@ -64,10 +66,13 @@ export default class Day extends React.Component {
     <ListItem
       id={item.id}
       onPress={() => {
-        this.props.navigation.navigate('List', {
-          itemId: item.id,
-          title: item.name
-        });
+        {/* API will return 1 item with id='error' if no results were found */}
+        if(item.id !== 'error'){
+          this.props.navigation.navigate('List', {
+            itemId: item.id,
+            title: item.name
+          });
+        }
       }}
       ><Text style={styles.listItemName}>{item.name}</Text>
     </ListItem>
@@ -78,7 +83,7 @@ export default class Day extends React.Component {
 
     if(this.state.isLoading){
       return(
-        <View style={{flex: 1, padding: 20}}>
+        <View style={{paddingTop: 20}}>
           <ActivityIndicator/>
         </View>
       )

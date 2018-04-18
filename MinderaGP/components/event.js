@@ -15,6 +15,8 @@ import DayCoverPlaceholder from './img/loading_cover.png';
 
 
 
+{/* list day boxes for each event */}
+
 class Event extends React.Component {
 
   constructor(props){
@@ -47,12 +49,11 @@ class Event extends React.Component {
 
   _keyExtractor = (item, index) => item.id;
 
-
   _renderItem = ({item}) => (
     <View>
 
-      {/* if loading, no onPress and replace ImageBackground with the placeholder */}
-      {this.state.isLoading && (<TouchableOpacity
+      {/* if is loading or result has no items (API will return 1 item with id='error' if no results were found). No onPress and use DayCoverPlaceholder image for ImageBackground */}
+      {(this.state.isLoading || (!this.state.isLoading && item.id === 'error')) && (<TouchableOpacity
         id={item.id}
         style={styles.slide}
         >
@@ -64,7 +65,7 @@ class Event extends React.Component {
       </TouchableOpacity> )}
 
       {/* after loading */}
-      {!this.state.isLoading && (<TouchableOpacity
+      {(!this.state.isLoading && item.id !== 'error') && (<TouchableOpacity
         id={item.id}
         style={styles.slide}
         onPress={() => {
