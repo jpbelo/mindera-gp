@@ -4,7 +4,8 @@ import {
   Image,
   Text,
   FlatList,
-  ActivityIndicator
+  ActivityIndicator,
+  StyleSheet
 } from 'react-native';
 
 
@@ -48,12 +49,12 @@ export default class List extends React.Component {
   _keyExtractor = (item, index) => item.id;
 
   _renderItem = ({item}) => (
-    <View>
+    <View style={styles.card}>
       <Image
-          style={{width: 50, height: 50}}
+          style={{width: '100%', height: 180}}
           source={{uri: item.image }}
         />
-      <Text>{item.name}</Text>
+      <Text style={styles.cardName}>{item.name}</Text>
     </View>
   );
 
@@ -70,6 +71,8 @@ export default class List extends React.Component {
     return(
       <View>
         <FlatList
+          style={styles.list}
+          numColumns={2}
           data={this.state.dataSource}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
@@ -78,3 +81,20 @@ export default class List extends React.Component {
     );
   }
 }
+
+
+
+const styles = StyleSheet.create({
+  list: {
+    padding:10,
+  },
+  card: {
+    flex:1,
+    alignItems:'flex-start',
+    margin:10,
+  },
+  cardName: {
+    fontSize: 15,
+    marginTop:5,
+  },
+});

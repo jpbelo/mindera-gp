@@ -29,6 +29,13 @@ const navTabs = TabNavigator({
   tabBarOptions: {
     activeTintColor: 'white',
     inactiveTintColor: 'rgb(230,230,230)',
+    upperCaseLabel: false,
+    labelStyle: {
+      fontSize: 15,
+    },
+    indicatorStyle: {
+      backgroundColor: 'rgb(249,209,71)'
+    },
     style: {
       backgroundColor: '#022e75',
     }

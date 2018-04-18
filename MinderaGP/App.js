@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {
   Platform,
-  StyleSheet,
-  Text,
   View,
   YellowBox
 } from 'react-native';
@@ -54,8 +52,11 @@ const NavDrawer = DrawerNavigator({
   },
 },{
   drawerPosition: 'left',
-  drawerWidth: 220,
-  drawerBackgroundColor: 'rgb(245,245,245)'
+  drawerWidth: 200,
+  drawerBackgroundColor: 'rgb(245,245,245)',
+  contentOptions: {
+    activeTintColor: '#999',
+  }
 });
 
 
@@ -63,11 +64,11 @@ const NavDrawer = DrawerNavigator({
 class App extends Component {
   render() {
     return (
-      <NavDrawer
-        ref={navigatorRef => {
-          NavigationService.setTopLevelNavigator(navigatorRef)
-        }}
-      />
+        <NavDrawer
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef)
+          }}
+        />
     )
   };
 };

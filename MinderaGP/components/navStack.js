@@ -19,14 +19,26 @@ const RouterStack = StackNavigator(
     },
     Day: {
       screen: Day,
+      navigationOptions: {
+        headerStyle: {
+          backgroundColor: '#0047cc',
+        },
+        headerTintColor: '#fff',
+      },
     },
     List: {
       screen: List,
+      navigationOptions: {
+        headerStyle: {
+          backgroundColor: '#0047cc',
+        },
+        headerTintColor: '#fff',
+      },
     },
   },
   {
     initialRouteName: 'NavTabs',
-  }
+  },
 );
 
 
