@@ -117,9 +117,10 @@ const styles = StyleSheet.create({
   slideName: {
     backgroundColor: 'rgba(255,255,255,.5)',
     width: '100%',
-    padding: 10,
+    padding: 8,
     textAlign: 'center',
-    fontSize: 18
+    fontSize: 18,
+    color: 'rgb(20,20,20)',
   }
 });
 

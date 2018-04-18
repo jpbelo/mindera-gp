@@ -17,20 +17,29 @@ const navTabs = TabNavigator({
       screen: Events,
       navigationOptions: {
           tabBarLabel:"Events",
-          tabBarIcon: ({ tintColor }) => <Icon name="menu" />
       }
   },
   Vacancies: {
       screen: Vacancies,
       navigationOptions: {
           tabBarLabel:"Vacancies",
-          tabBarIcon: ({ tintColor }) => <Icon name="menu" />
       }
   }
 }, {
   tabBarOptions: {
-      activeTintColor: 'black',
-  }
+    activeTintColor: 'white',
+    inactiveTintColor: 'rgb(230,230,230)',
+    style: {
+      backgroundColor: '#022e75',
+    }
+  },
+  swipeEnabled: false,
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#0047cc',
+    },
+    headerTintColor: '#fff',
+  },
 });
 
 

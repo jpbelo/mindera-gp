@@ -25,7 +25,7 @@ export default class Events extends React.Component {
         style={{padding: 20}}
         onPress={() => NavigationService.navigate('DrawerOpen')}
         >
-        <Icon name="menu" />
+        <Icon name="menu" style={{fontSize: 25, color: '#fff'}}/>
       </TouchableOpacity>
     ),
     headerRight: (
@@ -33,7 +33,7 @@ export default class Events extends React.Component {
         style={{padding: 20}}
         onPress={() => alert('search!')}
         >
-        <Icon name="search" />
+        <Icon name="search" style={{fontSize: 25, color: '#fff'}}/>
       </TouchableOpacity>
     ),
   };
@@ -70,7 +70,6 @@ export default class Events extends React.Component {
 
 
   render(){
-
     if(this.state.isLoading){
       return(
         <View style={{flex: 1}}>
@@ -103,9 +102,10 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   eventName: {
-    paddingTop: 20,
-    paddingBottom: 10,
+    paddingTop: 25,
+    paddingBottom: 8,
     paddingLeft: 15,
-    fontSize: 18,
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });

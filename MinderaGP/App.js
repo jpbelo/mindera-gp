@@ -55,7 +55,7 @@ const NavDrawer = DrawerNavigator({
 },{
   drawerPosition: 'left',
   drawerWidth: 220,
-  drawerBackgroundColor: 'orange'
+  drawerBackgroundColor: 'rgb(245,245,245)'
 });
 
 
