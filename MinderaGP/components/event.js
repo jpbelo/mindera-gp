@@ -15,7 +15,7 @@ import DayCoverPlaceholder from './img/loading_cover.png';
 
 
 
-{/* list day boxes for each event */}
+// list day boxes for each event
 
 class Event extends React.Component {
 

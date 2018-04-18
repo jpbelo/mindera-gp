@@ -16,7 +16,7 @@ import {
 
 
 
-{/* list for the selected day */}
+// list for the selected day
 
 export default class Day extends React.Component {
 

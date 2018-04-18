@@ -16,7 +16,7 @@ import Event from './event';
 
 
 
-{/* first screen - list each event */}
+// first screen - list each event
 
 export default class Events extends React.Component {
 

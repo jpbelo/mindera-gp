@@ -10,7 +10,7 @@ import {
 
 
 
-{/* image + description pairs for the selected list */}
+// image + description pairs for the selected list
 
 export default class List extends React.Component {
 
