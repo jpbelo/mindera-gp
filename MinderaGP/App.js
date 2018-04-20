@@ -7,8 +7,9 @@ import {
 } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
 import { Container } from 'native-base';
+import { Provider } from "react-redux"
 
-
+import store from "./store"
 import NavigationService from './NavigationService';
 import NavStack from './components/navStack';
 import About from './components/about';
@@ -17,7 +18,7 @@ YellowBox.ignoreWarnings([
   'Warning: isMounted',
 ]);
 
-//redux version
+
 
 // main app screen - first screen of the drawer
 class HomeScreen extends Component {
@@ -67,6 +68,7 @@ const NavDrawer = DrawerNavigator({
 class App extends Component {
   render() {
     return (
+      <Provider store={store}>
         <Container>
           <StatusBar
             backgroundColor="#0047cc"
@@ -78,6 +80,7 @@ class App extends Component {
             }}
           />
         </Container>
+      </Provider>
     )
   };
 };
