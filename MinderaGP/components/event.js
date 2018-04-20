@@ -10,10 +10,8 @@ import {
   ImageBackground
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import axios from 'axios';
-import { connect } from "react-redux"
+import axios from "axios";
 
-import { fetchEvents } from "../actions/eventsActions"
 import DayCoverPlaceholder from './img/loading_cover.png';
 
 
@@ -35,29 +33,19 @@ class Event extends React.Component {
   }
 
   componentDidMount(){
-    // return fetch('https://react.joaobelo.pt/events/' + this.props.eventID)
-    //   .then((response) => response.json())
-    //   .then((responseJson) => {
-    //     this.setState({
-    //       isLoading: false,
-    //       dataSource: responseJson,
-    //     }, function(){
-    //     });
-    //   })
-    //   .catch((error) =>{
-    //     console.error(error);
-    //   });
 
+      axios.get('https://react.joaobelo.pt/events/' + this.props.eventID)
+        .then((response) => {
+          this.setState({
+            isLoading: false,
+            dataSource: response.data,
+          }, function(){
+          })
+        })
+        .catch((err) => {
+          console.log(err);
+        })
 
-    // axios.get('https://react.joaobelo.pt/events/' + this.props.eventID)
-    //   .then((response) => {
-    //         this.setState({
-    //           isLoading: false,
-    //           dataSource: response.data,
-    //         })
-    //   })
-
-    this.props.dispatch(fetchEvents())
   }
 
 
@@ -158,5 +146,4 @@ const styles = StyleSheet.create({
 
 
 
-// export default withNavigation(Event);
-export default connect(state => ({events: state.events}))(Event);
+export default withNavigation(Event);

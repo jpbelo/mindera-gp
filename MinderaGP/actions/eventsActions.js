@@ -4,7 +4,7 @@ export function fetchEvents() {
   return function(dispatch) {
     dispatch({type: "FETCH_EVENTS"});
 
-    axios.get("http://rest.learncode.academy/api/reacttest/tweets")
+    axios.get("https://react.joaobelo.pt/events")
       .then((response) => {
         dispatch({type: "FETCH_EVENTS_FULFILLED", payload: response.data})
       })

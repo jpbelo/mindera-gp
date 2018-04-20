@@ -26,7 +26,7 @@ export default function reducer(state=initialState, action) {
           ...state,
           loading: false,
           loaded: true,
-          tweets: action.payload,
+          events: action.payload,
         }
       }
     }

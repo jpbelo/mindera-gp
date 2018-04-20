@@ -10,7 +10,9 @@ import {
   ActivityIndicator
 } from 'react-native';
 import { Icon } from 'native-base';
+import { connect } from "react-redux";
 
+import { fetchEvents } from "../actions/eventsActions";
 import NavigationService from '../NavigationService.js';
 import Event from './event';
 
@@ -18,7 +20,7 @@ import Event from './event';
 
 // first screen - list each event
 
-export default class Events extends React.Component {
+class Events extends React.Component {
 
   static navigationOptions = {
     title: 'Meet Mindera',
@@ -40,30 +42,9 @@ export default class Events extends React.Component {
     ),
   };
 
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: true,
-      dataSource: [{
-        name: 'loading...',
-        id: 'loading',
-      }]
-    }
-  }
 
   componentDidMount(){
-    return fetch('https://react.joaobelo.pt/events')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson,
-        }, function(){
-        });
-      })
-      .catch((error) =>{
-        console.error(error);
-      });
+    this.props.dispatch(fetchEvents());
   }
 
 
@@ -72,8 +53,8 @@ export default class Events extends React.Component {
   _renderItem = ({item}) => (
     <View>
       <Text style={styles.eventName}>{item.name}</Text>
-      {/* after loading each event include the box for each day */}
-      {!this.state.isLoading && <Event eventID={item.id} eventName={item.name} />}
+      {/* after loading each event include the event days boxes */}
+      {!this.props.loading && <Event eventID={item.id} eventName={item.name} />}
     </View>
   );
 
@@ -85,7 +66,7 @@ export default class Events extends React.Component {
           style={{height:200, width:'100%'}}
           />
         <FlatList
-          data={this.state.dataSource}
+          data={this.props.events.events}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
           style={styles.events}
@@ -109,3 +90,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+
+
+
+export default connect(store => ({events: store.events}))(Events);
