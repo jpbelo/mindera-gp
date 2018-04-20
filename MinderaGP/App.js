@@ -17,7 +17,7 @@ YellowBox.ignoreWarnings([
   'Warning: isMounted',
 ]);
 
-
+//redux version
 
 // main app screen - first screen of the drawer
 class HomeScreen extends Component {
