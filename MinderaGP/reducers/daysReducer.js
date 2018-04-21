@@ -1,5 +1,5 @@
 initialState = {
-  events: [],
+  daylists: [],
   loading: false,
   loaded: false,
   error: null,
@@ -8,43 +8,44 @@ initialState = {
 export default function reducer(state=initialState, action) {
 
     switch (action.type) {
-      case "FETCH_EVENTS": {
+      case "FETCH_DAY_LISTS": {
         return {
           ...state,
           loading: true
         }
       }
-      case "FETCH_EVENTS_REJECTED": {
+      case "FETCH_DAY_LISTS_REJECTED": {
         return {
           ...state,
           loading: false,
           error: action.payload
         }
       }
-      case "FETCH_EVENTS_FULFILLED": {
+      case "FETCH_DAY_LISTS_FULFILLED": {
         return {
           ...state,
           loading: false,
           loaded: true,
-          events: action.payload,
+          daylists: action.payload,
         }
       }
 
 
-      case "FETCH_EVENT_DAYS": {
+
+      case "FETCH_LIST": {
         return {
           ...state,
           loading: true
         }
       }
-      case "FETCH_EVENT_DAYS_REJECTED": {
+      case "FETCH_LIST_REJECTED": {
         return {
           ...state,
           loading: false,
           error: action.payload
         }
       }
-      case "FETCH_EVENT_DAYS_FULFILLED": {
+      case "FETCH_LIST_FULFILLED": {
         return {
           ...state,
           loading: false,

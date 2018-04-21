@@ -65,12 +65,13 @@ class Events extends React.Component {
           source={require('./img/eventBanner.png')}
           style={{height:200, width:'100%'}}
           />
-        <FlatList
+        {this.props.events.error && <Text style={styles.eventName}>{this.props.events.error.message}</Text> }
+        {this.props.events.loaded && <FlatList
           data={this.props.events.events}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
           style={styles.events}
-        />
+        /> }
       </ScrollView>
     );
   }
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
 
 
 

@@ -13,12 +13,15 @@ import {
   ListItem,
   Right
 } from 'native-base';
+import { connect } from "react-redux";
+
+import { fetchDayLists } from "../actions/eventsActions";
 
 
 
 // list for the selected day
 
-export default class Day extends React.Component {
+class Day extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
@@ -27,36 +30,10 @@ export default class Day extends React.Component {
     }
   };
 
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: true,
-      dataSource: [{
-        name: 'loading...',
-        id: 'loading',
-      }]
-    }
-  }
-
   componentDidMount(){
     const { params } = this.props.navigation.state;
-    const itemId = params ? params.itemId : null;
-
-    return fetch('https://react.joaobelo.pt/days/' + itemId)
-      .then((response) => response.json())
-      .then((responseJson) => {
-
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson,
-        }, function(){
-
-        });
-
-      })
-      .catch((error) =>{
-        console.error(error);
-      });
+    const dayId = params ? params.itemId : null;
+    this.props.dispatch(fetchDayLists(dayId));
   }
 
 
@@ -80,22 +57,14 @@ export default class Day extends React.Component {
 
 
   render(){
-
-    if(this.state.isLoading){
-      return(
-        <View style={{paddingTop: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
     return(
       <View>
-        <FlatList
-          data={this.state.dataSource}
+        {this.props.day.loading && <ActivityIndicator style={{paddingTop: 20}} /> }
+        {this.props.day.loaded && <FlatList
+          data={this.props.day.daylists}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
-        />
+        /> }
       </View>
     );
   }
@@ -108,3 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
   },
 });
+
+
+
+export default connect(store => ({day: store.days}))(Day);

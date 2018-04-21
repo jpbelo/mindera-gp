@@ -46,10 +46,12 @@ class Event extends React.Component {
           console.log(err);
         })
 
+      // this.props.dispatch(fetchEventDays(this.props.eventID));
+
   }
 
 
-  _keyExtractor = (item, index) => item.id;
+  _keyExtractor = (item) => item.id;
 
   _renderItem = ({item}) => (
     <View>
@@ -80,7 +82,7 @@ class Event extends React.Component {
         <ImageBackground
           style={styles.slideBackground}
           source={{uri: item.cover_img }}>
-          <Text style={styles.slideName}>{item.name}</Text>
+          <Text style={styles.slideName}>{item.name} - {item.key}</Text>
         </ImageBackground>
       </TouchableOpacity> )}
 
