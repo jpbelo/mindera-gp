@@ -13,25 +13,25 @@
 
   $paths = [
       [
+        // all events
         '/events',
         'SELECT * FROM events ORDER BY date DESC',
         'array'
       ],[
+        // event days
         '/events/event_id',
         'SELECT * FROM event_days WHERE event_id = $event_id',
         'array'
       ],[
+        // day galleries
         '/days/day_id',
-        'SELECT * FROM event_day_lists WHERE day_id = $day_id',
+        'SELECT * FROM event_day_galleries WHERE day_id = $day_id',
         'array'
       ],[
-        '/lists/list_id',
-        'SELECT * FROM event_day_list_elements WHERE list_id = $list_id',
+        // gallery items
+        '/galleries/gallery_id',
+        'SELECT * FROM event_day_gallery_items WHERE gallery_id = $gallery_id',
         'array'
-      ],[
-        '/elements/element_id',
-        'SELECT * FROM event_day_list_elements WHERE id = $element_id',
-        'single'
       ]
   ];
 

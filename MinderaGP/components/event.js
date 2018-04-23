@@ -26,7 +26,7 @@ class Event extends React.Component {
       isLoading: true,
       dataSource: [{
         name: 'loading...',
-        cover_img: 'http://samples.joaobelo.pt/480x600/loading_cover.png',
+        cover_img: 'https://samples.joaobelo.pt/480x600/loading_cover.png',
         id: 'loading',
       }]
     }
@@ -82,7 +82,7 @@ class Event extends React.Component {
         <ImageBackground
           style={styles.slideBackground}
           source={{uri: item.cover_img }}>
-          <Text style={styles.slideName}>{item.name} - {item.key}</Text>
+          <Text style={styles.slideName}>{item.name}</Text>
         </ImageBackground>
       </TouchableOpacity> )}
 

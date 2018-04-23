@@ -26,7 +26,7 @@ class Events extends React.Component {
     title: 'Meet Mindera',
     headerLeft: (
       <TouchableOpacity
-        style={{padding: 20}}
+        style={{paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10,}}
         onPress={() => NavigationService.navigate('DrawerOpen')}
         >
         <Icon name="menu" style={{fontSize: 25, color: '#fff'}}/>
@@ -34,7 +34,7 @@ class Events extends React.Component {
     ),
     headerRight: (
       <TouchableOpacity
-        style={{padding: 20}}
+        style={{paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10,}}
         onPress={() => alert('search!')}
         >
         <Icon name="search" style={{fontSize: 25, color: '#fff'}}/>
@@ -53,8 +53,8 @@ class Events extends React.Component {
   _renderItem = ({item}) => (
     <View>
       <Text style={styles.eventName}>{item.name}</Text>
-      {/* after loading each event include the event days boxes */}
-      {!this.props.loading && <Event eventID={item.id} eventName={item.name} />}
+      {/* after loading each event -> include the event days boxes */}
+      {!this.props.events.loading && <Event eventID={item.id} eventName={item.name} />}
     </View>
   );
 

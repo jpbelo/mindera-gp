@@ -15,11 +15,11 @@ import {
 } from 'native-base';
 import { connect } from "react-redux";
 
-import { fetchDayLists } from "../actions/eventsActions";
+import { fetchDayGalleries } from "../actions/eventsActions";
 
 
 
-// list for the selected day
+// list of galleries for the selected day
 
 class Day extends React.Component {
 
@@ -33,7 +33,7 @@ class Day extends React.Component {
   componentDidMount(){
     const { params } = this.props.navigation.state;
     const dayId = params ? params.itemId : null;
-    this.props.dispatch(fetchDayLists(dayId));
+    this.props.dispatch(fetchDayGalleries(dayId));
   }
 
 
@@ -45,8 +45,8 @@ class Day extends React.Component {
       onPress={() => {
         {/* API will return 1 item with id='error' if no results were found */}
         if(item.id !== 'error'){
-          this.props.navigation.navigate('List', {
-            itemId: item.id,
+          this.props.navigation.navigate('Gallery', {
+            galleryId: item.id,
             title: item.name
           });
         }
@@ -61,7 +61,7 @@ class Day extends React.Component {
       <View>
         {this.props.day.loading && <ActivityIndicator style={{paddingTop: 20}} /> }
         {this.props.day.loaded && <FlatList
-          data={this.props.day.daylists}
+          data={this.props.day.dayGalleries}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         /> }

@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 127.0.0.1 (MySQL 5.7.20)
-# Database: mindera-gp
-# Generation Time: 2018-04-18 14:44:04 +0000
+# Host: joaobelo.pt (MySQL 5.5.5-10.0.34-MariaDB)
+# Database: joaobelo_mindera_gp
+# Generation Time: 2018-04-23 00:04:12 +0000
 # ************************************************************
 
 
@@ -20,12 +20,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table event_day_list_elements
+# Dump of table event_day_gallery_items
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `event_day_list_elements`;
+DROP TABLE IF EXISTS `event_day_gallery_items`;
 
-CREATE TABLE `event_day_list_elements` (
+CREATE TABLE `event_day_gallery_items` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` int(11) DEFAULT NULL,
   `list_id` varchar(255) DEFAULT NULL,
@@ -34,42 +34,42 @@ CREATE TABLE `event_day_list_elements` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-LOCK TABLES `event_day_list_elements` WRITE;
-/*!40000 ALTER TABLE `event_day_list_elements` DISABLE KEYS */;
+LOCK TABLES `event_day_gallery_items` WRITE;
+/*!40000 ALTER TABLE `event_day_gallery_items` DISABLE KEYS */;
 
-INSERT INTO `event_day_list_elements` (`id`, `order_id`, `list_id`, `name`, `image`)
+INSERT INTO `event_day_gallery_items` (`id`, `order_id`, `list_id`, `name`, `image`)
 VALUES
-	(1,1,'1','Description 01','http://samples.joaobelo.pt/500x500/1.png'),
-	(2,2,'1','Description 02','http://samples.joaobelo.pt/500x500/2.png'),
-	(3,3,'1','Description 03','http://samples.joaobelo.pt/500x500/3.png'),
-	(4,4,'1','Description 04','http://samples.joaobelo.pt/500x500/4.png'),
-	(5,5,'1','Description 05','http://samples.joaobelo.pt/500x500/5.png'),
-	(6,6,'1','Description 06','http://samples.joaobelo.pt/500x500/1.png'),
-	(7,7,'1','Description 07','http://samples.joaobelo.pt/500x500/2.png'),
-	(8,8,'1','Description 08','http://samples.joaobelo.pt/500x500/3.png'),
-	(9,9,'1','Description 09','http://samples.joaobelo.pt/500x500/4.png'),
-	(10,9,'2','Description 09','http://samples.joaobelo.pt/500x500/5.png');
+	(1,1,'1','Description 01','https://samples.joaobelo.pt/500x500/1.png'),
+	(2,2,'1','Description 02','https://samples.joaobelo.pt/500x500/2.png'),
+	(3,3,'1','Description 03','https://samples.joaobelo.pt/500x500/3.png'),
+	(4,4,'1','Description 04','https://samples.joaobelo.pt/500x500/4.png'),
+	(5,5,'1','Description 05','https://samples.joaobelo.pt/500x500/5.png'),
+	(6,6,'1','Description 06','https://samples.joaobelo.pt/500x500/1.png'),
+	(7,7,'1','Description 07','https://samples.joaobelo.pt/500x500/2.png'),
+	(8,8,'1','Description 08','https://samples.joaobelo.pt/500x500/3.png'),
+	(9,9,'1','Description 09','https://samples.joaobelo.pt/500x500/4.png'),
+	(10,9,'2','Description 09','https://samples.joaobelo.pt/500x500/5.png');
 
-/*!40000 ALTER TABLE `event_day_list_elements` ENABLE KEYS */;
+/*!40000 ALTER TABLE `event_day_gallery_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump of table event_day_lists
+# Dump of table event_day_galleries
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `event_day_lists`;
+DROP TABLE IF EXISTS `event_day_galleries`;
 
-CREATE TABLE `event_day_lists` (
+CREATE TABLE `event_day_galleries` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `day_id` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-LOCK TABLES `event_day_lists` WRITE;
-/*!40000 ALTER TABLE `event_day_lists` DISABLE KEYS */;
+LOCK TABLES `event_day_galleries` WRITE;
+/*!40000 ALTER TABLE `event_day_galleries` DISABLE KEYS */;
 
-INSERT INTO `event_day_lists` (`id`, `day_id`, `name`)
+INSERT INTO `event_day_galleries` (`id`, `day_id`, `name`)
 VALUES
 	(1,'1','List 01'),
 	(2,'1','List 02'),
@@ -88,7 +88,7 @@ VALUES
 	(15,'2','List 201'),
 	(16,'2','List 202');
 
-/*!40000 ALTER TABLE `event_day_lists` ENABLE KEYS */;
+/*!40000 ALTER TABLE `event_day_galleries` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -111,17 +111,17 @@ LOCK TABLES `event_days` WRITE;
 
 INSERT INTO `event_days` (`id`, `event_id`, `date`, `name`, `cover_img`)
 VALUES
-	(1,'1','2018-04-21','Day 01','http://samples.joaobelo.pt/480x600/2.png'),
-	(2,'1','2018-04-22','Day 02','http://samples.joaobelo.pt/480x600/3.png'),
-	(3,'1','2018-04-23','Day 03','http://samples.joaobelo.pt/480x600/4.png'),
-	(4,'1','2018-04-24','Day 04','http://samples.joaobelo.pt/480x600/2.png'),
-	(5,'2','2018-06-01','Welcoming','http://samples.joaobelo.pt/480x600/1.png'),
-	(6,'2','2018-06-02','The Basics','http://samples.joaobelo.pt/480x600/2.png'),
-	(7,'2','2018-06-03','Develop Skills','http://samples.joaobelo.pt/480x600/3.png'),
-	(8,'2','2018-06-04','Implementation','http://samples.joaobelo.pt/480x600/4.png'),
-	(9,'3','2018-08-01','Day 01','http://samples.joaobelo.pt/480x600/3.png'),
-	(10,'3','2018-08-02','Day 02','http://samples.joaobelo.pt/480x600/4.png'),
-	(11,'3','2018-08-03','Day 03','http://samples.joaobelo.pt/480x600/2.png');
+	(1,'1','2018-04-21','Day 01','https://samples.joaobelo.pt/480x600/2.png'),
+	(2,'1','2018-04-22','Day 02','https://samples.joaobelo.pt/480x600/3.png'),
+	(3,'1','2018-04-23','Day 03','https://samples.joaobelo.pt/480x600/4.png'),
+	(4,'1','2018-04-24','Day 04','https://samples.joaobelo.pt/480x600/2.png'),
+	(5,'2','2018-06-01','Welcoming','https://samples.joaobelo.pt/480x600/1.png'),
+	(6,'2','2018-06-02','The Basics','https://samples.joaobelo.pt/480x600/2.png'),
+	(7,'2','2018-06-03','Develop Skills','https://samples.joaobelo.pt/480x600/3.png'),
+	(8,'2','2018-06-04','Implementation','https://samples.joaobelo.pt/480x600/4.png'),
+	(9,'3','2018-08-01','Day 01','https://samples.joaobelo.pt/480x600/3.png'),
+	(10,'3','2018-08-02','Day 02','https://samples.joaobelo.pt/480x600/4.png'),
+	(11,'3','2018-08-03','Day 03','https://samples.joaobelo.pt/480x600/2.png');
 
 /*!40000 ALTER TABLE `event_days` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -146,7 +146,8 @@ INSERT INTO `events` (`id`, `date`, `name`)
 VALUES
 	(1,'2018-04-21','Open Day ’18'),
 	(2,'2018-06-01','Graduate Program'),
-	(3,'2018-08-01','Meet Mindera Code & Culture');
+	(3,'2018-08-01','Meet Mindera Code & Culture'),
+	(4,'2018-09-01','Test event without days');
 
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;

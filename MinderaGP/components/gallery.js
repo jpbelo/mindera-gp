@@ -7,12 +7,13 @@ import {
   ActivityIndicator,
   StyleSheet
 } from 'react-native';
+import axios from "axios";
 
 
 
 // image + description pairs for the selected list
 
-export default class List extends React.Component {
+export default class Gallery extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
@@ -30,20 +31,20 @@ export default class List extends React.Component {
 
   componentDidMount(){
     const { params } = this.props.navigation.state;
-    const itemId = params ? params.itemId : null;
+    const galleryId = params ? params.galleryId : null;
 
-    return fetch('https://react.joaobelo.pt/lists/' + itemId)
-      .then((response) => response.json())
-      .then((responseJson) => {
+    axios.get('https://react.joaobelo.pt/galleries/' + galleryId)
+      .then((response) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson,
+          dataSource: response.data,
         }, function(){
-        });
+        })
       })
-      .catch((error) =>{
-        console.error(error);
-      });
+      .catch((err) => {
+        console.log(err);
+      })
+
   }
 
 

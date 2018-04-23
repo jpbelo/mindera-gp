@@ -1,5 +1,5 @@
 initialState = {
-  daylists: [],
+  dayGalleries: [],
   loading: false,
   loaded: false,
   error: null,
@@ -8,44 +8,44 @@ initialState = {
 export default function reducer(state=initialState, action) {
 
     switch (action.type) {
-      case "FETCH_DAY_LISTS": {
+      case "FETCH_DAY_GALLERIES": {
         return {
           ...state,
           loading: true
         }
       }
-      case "FETCH_DAY_LISTS_REJECTED": {
+      case "FETCH_DAY_GALLERIES_REJECTED": {
         return {
           ...state,
           loading: false,
           error: action.payload
         }
       }
-      case "FETCH_DAY_LISTS_FULFILLED": {
+      case "FETCH_DAY_GALLERIES_FULFILLED": {
         return {
           ...state,
           loading: false,
           loaded: true,
-          daylists: action.payload,
+          dayGalleries: action.payload,
         }
       }
 
 
 
-      case "FETCH_LIST": {
+      case "FETCH_GALLERY": {
         return {
           ...state,
           loading: true
         }
       }
-      case "FETCH_LIST_REJECTED": {
+      case "FETCH_GALLERY_REJECTED": {
         return {
           ...state,
           loading: false,
           error: action.payload
         }
       }
-      case "FETCH_LIST_FULFILLED": {
+      case "FETCH_GALLERY_FULFILLED": {
         return {
           ...state,
           loading: false,

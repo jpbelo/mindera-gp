@@ -40,6 +40,7 @@ const navTabs = TabNavigator({
       backgroundColor: '#022e75',
     }
   },
+  tabBarPosition: 'top',
   swipeEnabled: false,
   navigationOptions: {
     headerStyle: {

@@ -14,7 +14,7 @@ export default class Vacancies extends React.Component {
     title: 'Meet Mindera',
     headerLeft: (
       <TouchableOpacity
-        style={{padding: 20}}
+        style={{paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10,}}
         onPress={() => NavigationService.navigate('DrawerOpen')}
         >
         <Icon name="menu" style={{fontSize: 25, color: '#fff'}}/>
@@ -22,7 +22,7 @@ export default class Vacancies extends React.Component {
     ),
     headerRight: (
       <TouchableOpacity
-        style={{padding: 20}}
+        style={{paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10,}}
         onPress={() => alert('search!')}
         >
         <Icon name="search" style={{fontSize: 25, color: '#fff'}}/>

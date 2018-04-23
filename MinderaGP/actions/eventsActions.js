@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export function fetchEvents() {
   return function(dispatch) {
     dispatch({type: "FETCH_EVENTS"});
@@ -32,16 +33,16 @@ export function fetchEventDays(eventID) {
 }
 
 
-export function fetchDayLists(dayID) {
+export function fetchDayGalleries(dayID) {
   return function(dispatch) {
-    dispatch({type: "FETCH_DAY_LISTS"});
+    dispatch({type: "FETCH_DAY_GALLERIES"});
 
     axios.get("https://react.joaobelo.pt/days/" + dayID)
       .then((response) => {
-        dispatch({type: "FETCH_DAY_LISTS_FULFILLED", payload: response.data})
+        dispatch({type: "FETCH_DAY_GALLERIES_FULFILLED", payload: response.data})
       })
       .catch((err) => {
-        dispatch({type: "FETCH_DAY_LISTS_REJECTED", payload: err})
+        dispatch({type: "FETCH_DAY_GALLERIES_REJECTED", payload: err})
       })
 
   }

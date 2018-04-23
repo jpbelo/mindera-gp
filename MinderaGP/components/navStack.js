@@ -8,7 +8,7 @@ import { StackNavigator } from 'react-navigation';
 
 import NavTabs from './navTabs';
 import Day from './day';
-import List from './list';
+import Gallery from './gallery';
 
 
 
@@ -27,8 +27,8 @@ const RouterStack = StackNavigator(
         headerTintColor: '#fff',
       },
     },
-    List: {
-      screen: List,
+    Gallery: {
+      screen: Gallery,
       navigationOptions: {
         headerStyle: {
           backgroundColor: '#0047cc',
