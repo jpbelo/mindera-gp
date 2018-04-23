@@ -54,7 +54,7 @@ class Events extends React.Component {
     <View>
       <Text style={styles.eventName}>{item.name}</Text>
       {/* after loading each event -> include the event days boxes */}
-      {!this.props.events.loading && <Event eventID={item.id} eventName={item.name} />}
+      {!this.props.events.loading && <Event eventDays={item.days} eventID={item.id} eventName={item.name} />}
     </View>
   );
 

@@ -20,44 +20,13 @@ import DayCoverPlaceholder from './img/loading_cover.png';
 
 class Event extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: true,
-      dataSource: [{
-        name: 'loading...',
-        cover_img: 'https://samples.joaobelo.pt/480x600/loading_cover.png',
-        id: 'loading',
-      }]
-    }
-  }
-
-  componentDidMount(){
-
-      axios.get('https://react.joaobelo.pt/events/' + this.props.eventID)
-        .then((response) => {
-          this.setState({
-            isLoading: false,
-            dataSource: response.data,
-          }, function(){
-          })
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-
-      // this.props.dispatch(fetchEventDays(this.props.eventID));
-
-  }
-
-
   _keyExtractor = (item) => item.id;
 
   _renderItem = ({item}) => (
     <View>
 
       {/* if is loading or result has no items (API will return 1 item with id='error' if no results were found). No onPress and use DayCoverPlaceholder image for ImageBackground */}
-      {(this.state.isLoading || (!this.state.isLoading && item.id === 'error')) && (<TouchableOpacity
+      { item.id === 'error' && (<TouchableOpacity
         id={item.id}
         style={styles.slide}
         >
@@ -69,7 +38,7 @@ class Event extends React.Component {
       </TouchableOpacity> )}
 
       {/* after loading */}
-      {(!this.state.isLoading && item.id !== 'error') && (<TouchableOpacity
+      { item.id !== 'error' && (<TouchableOpacity
         id={item.id}
         style={styles.slide}
         onPress={() => {
@@ -104,7 +73,7 @@ class Event extends React.Component {
             style={styles.slider}
             horizontal={true}
             keyExtractor={this._keyExtractor}
-            data={this.state.dataSource}
+            data={this.props.eventDays}
             renderItem={this._renderItem}
           />
         </ScrollView>
