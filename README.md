@@ -1,9 +1,23 @@
+# Challenge proposal for my application to the Mindera Graduate Program
+
+
 ``cd MinderaGP``
 
 ``npm install``
 
-open a android simulator and run ``react-native run-android``
+open an android virtual device from Android Studio and run ``react-native run-android`` or just run ``react-native run-ios`` for iOS simulator.
 
-or
 
-just run ``react-native run-ios`` for iOS
+---
+
+
+To solve the front end challenge I used react native (no CRNA). I've been learning reactJS and react native in the last few months at a slow pace and it seemed like a good opportunity to get more into it.
+
+At first I made the app as simple as possible using only [react navigation](https://reactnavigation.org). At a later stage I decided to add [redux](https://redux.js.org), axios and [native base](https://nativebase.io) in order to learn and at the same time show I can use it.
+
+
+Not a part of the challenge, but I made a simple API with php just to read from a mysql database and show some dummy content to populate the app.
+https://react.joaobelo.pt
+https://react.joaobelo.pt/events
+https://react.joaobelo.pt/days/1
+https://react.joaobelo.pt/galleries/1
