@@ -25,7 +25,7 @@ class Event extends React.Component {
   _renderItem = ({item}) => (
     <View>
 
-      {/* if is loading or result has no items (API will return 1 item with id='error' if no results were found). No onPress and use DayCoverPlaceholder image for ImageBackground */}
+      {/* if result has no items (API will return 1 item with id='error' if no results were found) -> No onPress and use DayCoverPlaceholder image for ImageBackground */}
       { item.id === 'error' && (<TouchableOpacity
         id={item.id}
         style={styles.slide}
@@ -37,13 +37,13 @@ class Event extends React.Component {
         </ImageBackground>
       </TouchableOpacity> )}
 
-      {/* after loading */}
+      {/* if event has days */}
       { item.id !== 'error' && (<TouchableOpacity
         id={item.id}
         style={styles.slide}
         onPress={() => {
           this.props.navigation.navigate('Day', {
-            itemId: item.id,
+            dayId: item.id,
             title: this.props.eventName + ' _ ' + item.name
           });
         }}

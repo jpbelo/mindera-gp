@@ -1,5 +1,5 @@
 initialState = {
-  gallery: [],
+  items: [],
   loading: false,
   loaded: false,
   error: null,
@@ -26,7 +26,7 @@ export default function reducer(state=initialState, action) {
           ...state,
           loading: false,
           loaded: true,
-          events: action.payload,
+          items: action.payload,
         }
       }
 

@@ -32,7 +32,7 @@ class Day extends React.Component {
 
   componentDidMount(){
     const { params } = this.props.navigation.state;
-    const dayId = params ? params.itemId : null;
+    const dayId = params ? params.dayId : null;
     this.props.dispatch(fetchDayGalleries(dayId));
   }
 
@@ -60,6 +60,7 @@ class Day extends React.Component {
     return(
       <View>
         {this.props.day.loading && <ActivityIndicator style={{paddingTop: 20}} /> }
+        {this.props.day.error && <Text style={{paddingTop: 20}}>{this.props.day.error.message}</Text> }
         {this.props.day.loaded && <FlatList
           data={this.props.day.dayGalleries}
           keyExtractor={this._keyExtractor}

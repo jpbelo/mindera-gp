@@ -8,12 +8,15 @@ import {
   StyleSheet
 } from 'react-native';
 import axios from "axios";
+import { connect } from "react-redux";
+
+import { fetchGallery } from "../actions/eventsActions";
 
 
 
 // image + description pairs for the selected list
 
-export default class Gallery extends React.Component {
+class Gallery extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
@@ -22,29 +25,10 @@ export default class Gallery extends React.Component {
     }
   };
 
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: true,
-    }
-  }
-
   componentDidMount(){
     const { params } = this.props.navigation.state;
     const galleryId = params ? params.galleryId : null;
-
-    axios.get('https://react.joaobelo.pt/galleries/' + galleryId)
-      .then((response) => {
-        this.setState({
-          isLoading: false,
-          dataSource: response.data,
-        }, function(){
-        })
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-
+    this.props.dispatch(fetchGallery(galleryId));
   }
 
 
@@ -61,23 +45,17 @@ export default class Gallery extends React.Component {
   );
 
   render(){
-    if(this.state.isLoading){
-      return(
-        <View style={{paddingTop: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
     return(
       <View>
-        <FlatList
+        {this.props.gallery.loading && <ActivityIndicator style={{paddingTop: 20}} /> }
+        {this.props.gallery.error && <Text style={{paddingTop: 20}}>{this.props.gallery.error.message}</Text> }
+        {this.props.gallery.loaded && <FlatList
           style={styles.list}
           numColumns={2}
-          data={this.state.dataSource}
+          data={this.props.gallery.items}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
-        />
+        /> }
       </View>
     );
   }
@@ -99,3 +77,6 @@ const styles = StyleSheet.create({
     marginTop:5,
   },
 });
+
+
+export default connect(store => ({gallery: store.galleries}))(Gallery);

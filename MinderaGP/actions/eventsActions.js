@@ -16,23 +16,6 @@ export function fetchEvents() {
   }
 }
 
-
-export function fetchEventDays(eventID) {
-  return function(dispatch) {
-    dispatch({type: "FETCH_EVENT_DAYS"});
-
-    axios.get("https://react.joaobelo.pt/events/" + eventID)
-      .then((response) => {
-        dispatch({type: "FETCH_EVENT_DAYS_FULFILLED", payload: response.data})
-      })
-      .catch((err) => {
-        dispatch({type: "FETCH_EVENT_DAYS_REJECTED", payload: err})
-      })
-
-  }
-}
-
-
 export function fetchDayGalleries(dayID) {
   return function(dispatch) {
     dispatch({type: "FETCH_DAY_GALLERIES"});
@@ -43,6 +26,21 @@ export function fetchDayGalleries(dayID) {
       })
       .catch((err) => {
         dispatch({type: "FETCH_DAY_GALLERIES_REJECTED", payload: err})
+      })
+
+  }
+}
+
+export function fetchGallery(galleryID) {
+  return function(dispatch) {
+    dispatch({type: "FETCH_GALLERY"});
+
+    axios.get("https://react.joaobelo.pt/galleries/" + galleryID)
+      .then((response) => {
+        dispatch({type: "FETCH_GALLERY_FULFILLED", payload: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: "FETCH_GALLERY_REJECTED", payload: err})
       })
 
   }

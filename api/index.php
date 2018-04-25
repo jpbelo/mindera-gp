@@ -11,9 +11,9 @@
 	$http2 = ( isset($callArray[1]) ? $callArray[1] : null );
 
 
-	global $db_host, $db_user, $db_pass, $db_name;
-	$link = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-	mysqli_set_charset($link,'utf8');
+    global $db_host, $db_user, $db_pass, $db_name;
+    $link = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+    mysqli_set_charset($link,'utf8');
 
 
 	if( $http1 === 'events' && !$http2 ){
@@ -28,12 +28,15 @@
 				$eventID = $row['id'];
 				$SQL2 = "SELECT * FROM event_days WHERE event_id = $eventID";
 				$result2 = mysqli_query($link, $SQL2);
-				$emparray2 = array();
-				while($row2=mysqli_fetch_assoc($result2)){
-			        $emparray2[] = $row2;
-			    }
-				$row['days'] = $emparray2;
-		        $emparray[] = $row;
+					$emparray2 = array();
+					while($row2=mysqli_fetch_assoc($result2)){
+				        $emparray2[] = $row2;
+				    }
+				    if( count($emparray2) < 1 ){
+				    	$emparray2 = array(['id' => 'error', 'name' => 'no items']);
+				    }
+					$row['days'] = $emparray2;
+				    $emparray[] = $row;
 		    }
 		    echo json_encode($emparray);
 

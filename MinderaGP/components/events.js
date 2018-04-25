@@ -53,7 +53,7 @@ class Events extends React.Component {
   _renderItem = ({item}) => (
     <View>
       <Text style={styles.eventName}>{item.name}</Text>
-      {/* after loading each event -> include the event days boxes */}
+      {/* after loading each event -> include the box for each day */}
       {!this.props.events.loading && <Event eventDays={item.days} eventID={item.id} eventName={item.name} />}
     </View>
   );
@@ -65,6 +65,7 @@ class Events extends React.Component {
           source={require('./img/eventBanner.png')}
           style={{height:200, width:'100%'}}
           />
+        {this.props.events.loading && <Text style={styles.eventName}>Loading...</Text> }
         {this.props.events.error && <Text style={styles.eventName}>{this.props.events.error.message}</Text> }
         {this.props.events.loaded && <FlatList
           data={this.props.events.events}

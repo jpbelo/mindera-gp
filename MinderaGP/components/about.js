@@ -6,7 +6,6 @@ import {
   Text
 } from 'native-base';
 
-
 import NavigationService from '../NavigationService';
 import minderaIcon from './img/logo.png';
 
