@@ -1,5 +1,5 @@
 initialState = {
-  events: [],
+  gallery: [],
   loading: false,
   loaded: false,
   error: null,
@@ -8,20 +8,20 @@ initialState = {
 export default function reducer(state=initialState, action) {
 
     switch (action.type) {
-      case "FETCH_EVENTS": {
+      case "FETCH_GALLERY": {
         return {
           ...state,
           loading: true
         }
       }
-      case "FETCH_EVENTS_REJECTED": {
+      case "FETCH_GALLERY_REJECTED": {
         return {
           ...state,
           loading: false,
           error: action.payload
         }
       }
-      case "FETCH_EVENTS_FULFILLED": {
+      case "FETCH_GALLERY_FULFILLED": {
         return {
           ...state,
           loading: false,

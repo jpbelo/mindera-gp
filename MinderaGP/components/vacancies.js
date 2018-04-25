@@ -5,6 +5,7 @@ import {
   Icon,
 } from 'native-base';
 
+import NavigationService from '../NavigationService.js';
 import minderaIcon from './img/logo.png';
 
 
