@@ -4,7 +4,7 @@ import {
   View,
   Text
 } from 'react-native';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, TabBarTop } from 'react-navigation';
 import { Icon } from 'native-base';
 
 import Events from './events';
@@ -26,19 +26,22 @@ const navTabs = TabNavigator({
       }
   }
 }, {
+  tabBarComponent: TabBarTop,
   tabBarOptions: {
     activeTintColor: 'white',
     inactiveTintColor: 'rgb(230,230,230)',
     upperCaseLabel: false,
     labelStyle: {
       fontSize: 15,
+      margin: 5,
     },
     indicatorStyle: {
       backgroundColor: 'rgb(249,209,71)'
     },
     style: {
       backgroundColor: '#022e75',
-    }
+    },
+    showIcon: false,
   },
   tabBarPosition: 'top',
   swipeEnabled: false,

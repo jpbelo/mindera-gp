@@ -9,10 +9,11 @@ open an android virtual device from Android Studio and run ``react-native run-an
 
 ---
 
-
 To solve the front end challenge I used react native (no CRNA). I've been learning reactJS and react native in the last few months at a slow pace and it seemed like a good opportunity to get more into it.
 
 At first I made the app as simple as possible using only [react navigation](https://reactnavigation.org). At a later stage I decided to add [redux](https://redux.js.org), axios and [native base](https://nativebase.io) to learn how to use them.
+
+I'm also learning testing with jest and enzyme, but so far I haven't got much success, so I didn't merge it to the master branch yet. I will keep a testing branch to keep the learning going on, but it's better not to consider it as I might break some things on the app.
 
 ---
 

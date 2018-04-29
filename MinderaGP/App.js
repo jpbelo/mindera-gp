@@ -14,8 +14,11 @@ import NavigationService from './NavigationService';
 import NavStack from './components/navStack';
 import About from './components/about';
 
+// ignore warnings from some react-native known bugs
 YellowBox.ignoreWarnings([
   'Warning: isMounted',
+  'Class RCTCxxModule was not',
+  'Module RCTImageLoader requires',
 ]);
 
 

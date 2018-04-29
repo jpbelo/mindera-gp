@@ -14,7 +14,7 @@ import { fetchGallery } from "../actions/eventsActions";
 
 
 
-// image + description pairs for the selected list
+// image + description pairs for the selected gallery
 
 class Gallery extends React.Component {
 
@@ -37,7 +37,7 @@ class Gallery extends React.Component {
   _renderItem = ({item}) => (
     <View style={styles.card}>
       <Image
-          style={{width: '100%', height: 180}}
+          style={styles.cardImage}
           source={{uri: item.image }}
         />
       <Text style={styles.cardName}>{item.name}</Text>
@@ -65,16 +65,24 @@ class Gallery extends React.Component {
 
 const styles = StyleSheet.create({
   list: {
-    padding:10,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   card: {
-    flex:1,
-    alignItems:'flex-start',
-    margin:10,
+    flex: 1,
+    alignItems: 'flex-start',
+    marginLeft: 10,
+    marginRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  cardImage: {
+    width: '100%',
+    aspectRatio: 1,
   },
   cardName: {
     fontSize: 15,
-    marginTop:5,
+    marginTop: 5,
   },
 });
 
