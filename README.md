@@ -7,6 +7,8 @@
 
 open an android virtual device from Android Studio and run ``react-native run-android`` or just run ``react-native run-ios`` for an iOS simulator.
 
+add ``console: true`` to ``babel-plugin-jest-hoist/build/index.js``
+
 ---
 
 To solve the front end challenge I used react native (no CRNA). I've been learning reactJS and react native in the last few months at a slow pace and it seemed like a good opportunity to get more into it.

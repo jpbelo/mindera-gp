@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "native-base": "^2.4.2",
+    "native-base": "^2.4.3",
     "react": "16.3.1",
-    "react-native": "0.55.2",
+    "react-native": "0.55.3",
     "react-navigation": "^1.5.11",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
