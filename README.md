@@ -9,12 +9,15 @@ open an android virtual device from Android Studio and run ``react-native run-an
 
 for testing to work:
 1. add ``console: true`` to ``babel-plugin-jest-hoist/build/index.js``
-2. ```"jest": {
+2.
+```
+"jest": {
   "preset": "react-native",
   "transformIgnorePatterns": [
     "node_modules/(?!react-native|native-base-shoutem-theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
   ]
-}```
+}
+```
 
 ---
 
