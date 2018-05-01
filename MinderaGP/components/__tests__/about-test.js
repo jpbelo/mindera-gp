@@ -1,9 +1,9 @@
 import React from 'react';
-import Vacancies from '../vacancies';
+import About from '../about';
 
 import renderer from 'react-test-renderer';
 
 test('renders correctly', () => {
-  const tree = renderer.create(<Vacancies />).toJSON();
+  const tree = renderer.create(<About />).toJSON();
   expect(tree).toMatchSnapshot();
 });
